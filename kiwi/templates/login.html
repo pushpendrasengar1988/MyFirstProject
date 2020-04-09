@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {
+    border: 3px solid #efe7e7;
+    padding: 54px;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: beige;
+}
+
+.top-center {
+       margin-left: 41%;
+     }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.signupbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color:#4CAF50 ;
+  float: right;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 8%;
+    border-radius: 42%;
+    border: 3px solid #efe7e7;
+
+}
+.errorlist{
+   color: red
+}
+
+.container {
+  padding: 16px;
+  width: 29%;
+  margin: 0 auto;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.danger {
+  color: red;
+  margin-left: 419px
+}
+
+
+
+}
+</style>
+</head>
+<body>
+
+
+
+ <form action="{% url 'postLogin' %}" method="POST" enctype="multipart/form-data">
+
+
+  {% csrf_token %}
+    <h1 class="top-center"> Python Kiwi</h1>
+  <div class="imgcontainer">
+    <img src="/media/user-login.png" alt="Avatar" class="avatar">
+  </div>
+   {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  <div class="container">
+      <span>{{msg}} </span>
+    <label for="uname"><b>Username</b></label>
+
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+        <a href="{% url 'getRegister' %}"> <button type="button" class="signupbtn">SignUp</button> </a>
+  </div>
+
+</form>
+
+
+</body>
+</html>

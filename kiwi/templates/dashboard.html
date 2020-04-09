@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Creating Fixed Header and Footer with CSS</title>
+<style>
+    /* Add some padding on document's body to prevent the content
+    to go underneath the header and footer */
+    body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+        background-color: beige;
+    }
+    .container{
+        width: 80%;
+        background-color: beige;
+        margin: 0 auto; /* Center the DIV horizontally */
+        background-color: white;
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #4CAF50;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }    
+    /* Some more styles to beutify this example */
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+
+  .topnav-right {
+    float: right;
+     }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 168px;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+   
+</style>
+</head>
+<body>
+    <div class="fixed-header">
+        <div class="container">
+            <nav class ="topnav-right">
+                <a  href="/kiwi/update"><b>Edit Profile</a>
+                <a href="/kiwi/logout"><b>Logout</a>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container" >
+       <table>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Total Login Count </th>
+            <th>Last Login Time</th>
+            <th>Last Logout Time</th>
+          </tr>
+          <tr>
+            <td>{{request.user.first_name}}</td>
+            <td>{{request.user.last_name}}</td>
+            <td>{{request.user.email}}</td>
+            <td>{{userProfile.login_count}}</td>
+            <td>{{request.user.last_login}}</td>
+              <td>{{userProfile.last_logout}}</td>
+          </tr>
+
+
+      </dv>
+
+
+</body>
+</html>                            
