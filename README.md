@@ -60,7 +60,7 @@ Here I have mentioned some major tasks which I have implemented in iaccess proje
                 ->count(); 
             ```
     
-    In **old code** we are used  unnecessary join and also used laravel conditional Eloquent join on multiple table which is usually slow.because it's create multiple sub query inside query for each record. it's a one  kind of laravel drawbacks.   
+   In old code we used unnecessary join and also used laravel conditional Eloquent join on multiple tables which is usually slow.because it's create multiple sub query inside query for each record. It's one kind of laravel drawback. 
 
 
 
